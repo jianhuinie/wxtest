@@ -1,0 +1,19 @@
+<scroll-view>
+    <view>
+        <audio src="{{audioSrc}}" id="myAudio" controls poster="{{audioPoster}}"
+            author="{{audioAuthor}}" name="{{audioName}}">
+
+        </audio>
+    </view>
+    <view bindtap="audioPlay">播放</view>
+    <view bindtap="audioStop">停止播放</view>
+    <view bindtap="audioSeek">跳到14秒</view>
+    <view class="pics-container">
+        <view wx:for="{{array}}" wx:key="*this">
+            <view>{{item.text}}</view>
+            <view>
+                <image src="{{imgSrc}}" mode="{{item.mode}}"></image>
+            </view>
+        </view>
+    </view>
+</scroll-view>

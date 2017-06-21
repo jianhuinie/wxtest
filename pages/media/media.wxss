@@ -1,0 +1,4 @@
+.pics-container image {
+    width: 800rpx;
+    height: 600rpx;
+}
