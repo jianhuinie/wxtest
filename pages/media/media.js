@@ -1,4 +1,13 @@
 var App = getApp();
+function getRandomColor () {
+  let rgb = []
+  for (let i = 0 ; i < 3; ++i){
+    let color = Math.floor(Math.random() * 256).toString(16)
+    color = color.length == 1 ? '0' + color : color
+    rgb.push(color)
+  }
+  return '#' + rgb.join('')
+}
 const audioSrcStr = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46';
 Page({
     data: {
@@ -57,14 +66,17 @@ Page({
                 text: 'bottom right：不缩放图片，只显示图片的右下边区域'
             }
         ],
-        imgSrc: '../../resources/images/cat.jpg'
+        imgSrc: '../../resources/images/cat.jpg',
+        tempValue: ''
     },
+    inputValue: '',
     onLoad: function () {
 
     },
     onReady: function () {
         this.audioCxt = wx.createAudioContext("myAudio");
         this.audioCxt.setSrc(audioSrcStr);
+        this.videoCxt = wx.createVideoContext('myVideo');
     },
     audioPlay: function () {
         this.audioCxt.play();
@@ -74,5 +86,20 @@ Page({
     },
     audioSeek: function () {
         this.audioCxt.seek(14);
-    }
+    },
+    playVideo: function () {
+        this.videoCxt.play();
+    },
+    bindInputBlur: function (e) {
+        this.inputValue = e.detail.value;
+    },
+    bindSendDanmu: function () {
+        this.videoCxt.sendDanmu({
+            text: this.inputValue,
+            color: getRandomColor()
+        });
+        this.setData({
+            tempValue: ''
+        });
+    }   
 })
