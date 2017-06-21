@@ -3,4 +3,10 @@
 	<block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
 		<text class="log-item">{{index + 1}}. {{log}}</text>
 	</block>
+	<navigator open-type="navigateBack" delta="1"  class="userinfo">
+		goBack
+    </navigator>
+	<!--<navigator open-type="reLaunch" url="../index/index" class="userinfo">	
+		goBack
+    </navigator>-->
 </view>
