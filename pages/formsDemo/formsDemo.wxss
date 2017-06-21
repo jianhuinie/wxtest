@@ -1,0 +1,58 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-item {
+    width: 250rpx;
+    height: 250rpx;
+    text-align: center;
+    color: #fff;
+    padding-top: 100rpx;
+    box-sizing: border-box;
+
+}
+.bc-red {
+    background: red;
+}
+.bc-green {
+    background: green;
+}
+.bc-blue {
+    background: blue;
+}
+.container {
+    min-height: 500rpx;
+}
+.pic-slider {
+    width: 100%;
+}
+.move-area1 {
+    background: red;
+    width: 200rpx;
+    height: 200rpx
+}
+.move-view1 {
+    background: blue;
+    width: 50rpx;
+    height: 50rpx
+}
+.move-area2 {
+    background: red;
+    width: 100rpx;
+    height: 100rpx
+}
+.move-view2 {
+    background: blue;
+    width: 200rpx;
+    height: 200rpx
+}
+.test-button {
+    width: 500rpx;
+}
+.picker {
+    height: 30rpx;
+}

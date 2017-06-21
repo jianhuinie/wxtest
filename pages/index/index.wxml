@@ -1,10 +1,45 @@
 <!--index.wxml-->
 <view class="container">
-    <view  bindtap="bindViewTap" class="userinfo">
+    <!--<view  bindtap="bindViewTap" class="userinfo">
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </view>
+    </view>-->
+	<navigator open-type="navigateTo" url="../logs/logs" class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </navigator>
     <view class="usermotto">
         <text class="user-motto">{{motto}}</text>
     </view>
+	<view>
+		<text>{{showText}}</text>
+	</view>
+	<view bindtap="changeText">
+		click to toggle text	
+	</view>
+	<!--<view wx:if="{{maleFlag === 0}}">
+		小女生
+	</view>
+	<view wx:if="{{maleFlag === 1}}">
+		小骚年
+	</view>-->
+	<view wx:if="{{maleFlag === 0}}">
+		小女生
+	</view>
+	<view wx:else="{{maleFlag === 1}}">
+		小骚年
+	</view>
+	<view wx:for="{{hobbies}}" wx:for-index="key" wx:for-item="value" wx:key="*this">
+		<text>{{key + 1}}: {{value}}</text>
+	</view>
+	<template name="person">
+		<view>
+			name: {{fullName}}
+			age: {{age}}
+		</view>
+	</template>
+	<template is="person" data="{{...personA}}">
+
+	</template>
+	<switch checked bindchange="switchChange"></switch>
 </view>

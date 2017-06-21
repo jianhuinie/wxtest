@@ -1,0 +1,103 @@
+<scroll-view>
+    <view class="section">
+        <view class="section__title">flex-direction: row</view>
+        <view class="flex-wrp flex-row">
+            <view class="flex-item bc-green">1</view>
+            <view class="flex-item bc-red">2</view>
+            <view class="flex-item bc-blue">3</view>
+        </view>
+    </view>
+        <view class="section">
+        <view class="section__title">flex-direction: column</view>
+        <view class="flex-wrp flex-column">
+            <view class="flex-item bc-green">1</view>
+            <view class="flex-item bc-red">2</view>
+            <view class="flex-item bc-blue">3</view>
+        </view>
+    </view>
+    <view class="container">
+        <swiper class="pic-slider" indicator-dots="{{indicatorDots}}" 
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+                bindchange="sliderChange">
+            <block wx:for="{{picsArray}}" wx:key="*this">
+                <swiper-item>
+                    <image src="{{item}}" alt="" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <movable-area class="move-area1">
+            <movable-view class="move-view1" direction="all" x="{{x}}" y="{{y}}">
+
+            </movable-view>
+        </movable-area>
+        <!--<movable-area class="move-area2">
+            <movable-view class="move-view2" direction="all" x="{{x}}" y="{{y}}">
+
+            </movable-view>
+        </movable-area>-->
+        <view>
+            <icon type="success" size="25" /> 
+            <text>{{text}}</text>
+            <progress percent="20" show-info />
+        </view>
+        <button size="default" class="test-button" type="primary" open-type="contact">测试按钮</button>
+        <button size="warn" type="mini">测试按钮</button>
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <checkbox-group bindchange="checkboxChange" name="checkboxGrpup">
+                <label class="checkbox" wx:for="{{checkboxes}}" wx:key="*this">
+                    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+                </label>
+            </checkbox-group>
+            <view class="section">
+                <view class="section__title">switch</view>
+                <switch name="switch" />
+            </view>
+            <view class="section">
+                <view class="section__title">input</view>
+                <input placeholder="please enter content here" 
+                    name="input" value="{{inputValue}}" bindinput="inputChange"
+                />
+                <view>输入的值为：{{inputValue}}</view>
+            </view>
+            <view class="section">
+                <view class="section__title">picker</view>
+                <picker range="{{pickerArray}}" class="picker" value="{{pickerIndex}}"
+                        bindchange="pickerChange" name="picker">
+                    <view class="inner-picker">
+                        当前选择：{{pickerArray[pickerIndex]}}
+                    </view>
+                </picker>
+            </view>
+            <view class="section">
+                <view class="section__title">slider</view>
+                <slider name="slider" show-value left-icon="cancel" right-icon="success_no_circle" />
+            </view>
+             <view class="btn-area">
+                <button formType="submit">Submit</button>
+                <button formType="reset">Reset</button>
+            </view>
+            <radio-group class="radio-group" bindchange="radioChange" name="radioGrpup">
+                <label class="radio" wx:for="{{radioItems}}">
+                    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+                </label>
+            </radio-group>
+            <view class="section">
+                <textarea bindblur="bindTextAreaBlur" name="textarea" auto-height placeholder="自动变高" />
+            </view>
+        </form>
+    </view>
+    <view>
+    <view>{{year}}年{{month}}月{{day}}日</view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="pickerViewChange">
+        <picker-view-column>
+            <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+        </picker-view-column>
+    </picker-view>
+</view>
+</scroll-view>
