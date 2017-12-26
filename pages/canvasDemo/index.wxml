@@ -1,0 +1,3 @@
+<view>
+	<canvas canvas-id="my-canvas" style="border: 1px solid;"/>
+</view>

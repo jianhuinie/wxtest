@@ -3,6 +3,7 @@
 		"pages/index/index",
 		"pages/logs/logs",
 		"pages/formsDemo/formsDemo",
+		"pages/canvasDemo/index",
 		"pages/media/media",
 		"pages/map/map"
 	],
